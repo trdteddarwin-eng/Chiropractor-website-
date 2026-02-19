@@ -25,7 +25,7 @@ export default function ServiceDetail() {
         <p className="text-gray-600 mb-8">The service you're looking for doesn't exist.</p>
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-[#4F46E5] font-medium hover:underline"
+          className="inline-flex items-center gap-2 text-[#22C55E] font-medium hover:underline"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Home
@@ -40,10 +40,10 @@ export default function ServiceDetail() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-28 pb-20 sm:pt-36 sm:pb-28 bg-gradient-to-br from-[#1E1B4B] via-[#312E81] to-[#4F46E5] overflow-hidden">
+      <section className="relative pt-28 pb-20 sm:pt-36 sm:pb-28 bg-gradient-to-br from-[#052e16] via-[#14532d] to-[#22C55E] overflow-hidden">
         {/* Decorative blurs */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#7C3AED]/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#4F46E5]/30 rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#16A34A]/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#22C55E]/30 rounded-full blur-[100px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] rounded-full" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -99,7 +99,7 @@ export default function ServiceDetail() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[#7C3AED]/30 rounded-full blur-2xl" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[#16A34A]/30 rounded-full blur-2xl" />
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function ServiceDetail() {
               variants={fadeUp}
             >
               {/* Mobile image */}
-              <div className="lg:hidden w-full aspect-[16/9] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-[#4F46E5]/10 to-[#7C3AED]/10">
+              <div className="lg:hidden w-full aspect-[16/9] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-[#22C55E]/10 to-[#16A34A]/10">
                 <img
                   src={service.imagePath}
                   alt={service.title}
@@ -126,12 +126,12 @@ export default function ServiceDetail() {
                 />
               </div>
 
-              <p className="text-[#4F46E5] font-semibold text-sm mb-3 uppercase tracking-wider">
+              <p className="text-[#22C55E] font-semibold text-sm mb-3 uppercase tracking-wider">
                 About This Service
               </p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
                 What Is{' '}
-                <span className="bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#22C55E] to-[#16A34A] bg-clip-text text-transparent">
                   {service.title}
                 </span>
                 ?
@@ -151,12 +151,12 @@ export default function ServiceDetail() {
               viewport={{ once: true, margin: '-80px' }}
               variants={fadeUp}
             >
-              <div className="bg-gradient-to-br from-[#F0F4FF] to-white rounded-2xl p-6 sm:p-8 border border-gray-100 sticky top-28">
+              <div className="bg-gradient-to-br from-[#f0fdf4] to-white rounded-2xl p-6 sm:p-8 border border-gray-100 sticky top-28">
                 <h3 className="text-lg font-bold text-gray-900 mb-5">Key Benefits</h3>
                 <div className="space-y-4">
                   {service.benefits.map((benefit, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center shrink-0 mt-0.5">
                         <CheckCircle className="text-white" size={14} />
                       </div>
                       <p className="text-gray-700 text-sm leading-relaxed">{benefit}</p>
@@ -179,12 +179,12 @@ export default function ServiceDetail() {
             viewport={{ once: true, margin: '-80px' }}
             variants={fadeUp}
           >
-            <p className="text-[#4F46E5] font-semibold text-sm mb-3 uppercase tracking-wider">
+            <p className="text-[#22C55E] font-semibold text-sm mb-3 uppercase tracking-wider">
               Your Visit
             </p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               What to{' '}
-              <span className="bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#22C55E] to-[#16A34A] bg-clip-text text-transparent">
                 Expect
               </span>
             </h2>
@@ -211,9 +211,9 @@ export default function ServiceDetail() {
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
                   }}
-                  className="group flex items-start gap-5 bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 hover:border-[#4F46E5]/20 hover:shadow-lg hover:shadow-[#4F46E5]/5 transition-all duration-300"
+                  className="group flex items-start gap-5 bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 hover:border-[#22C55E]/20 hover:shadow-lg hover:shadow-[#22C55E]/5 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] text-white text-sm sm:text-base font-bold flex items-center justify-center shrink-0 shadow-md shadow-[#4F46E5]/25">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#22C55E] to-[#16A34A] text-white text-sm sm:text-base font-bold flex items-center justify-center shrink-0 shadow-md shadow-[#22C55E]/25">
                     {String(i + 1).padStart(2, '0')}
                   </div>
                   <p className="text-gray-700 leading-relaxed pt-2 sm:pt-2.5 text-sm sm:text-base">
@@ -234,7 +234,7 @@ export default function ServiceDetail() {
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             variants={fadeUp}
-            className="rounded-2xl bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] px-6 py-12 sm:px-12 text-center"
+            className="rounded-2xl bg-gradient-to-r from-[#22C55E] to-[#16A34A] px-6 py-12 sm:px-12 text-center"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
               Ready to Start Your {service.title} Treatment?
@@ -246,7 +246,7 @@ export default function ServiceDetail() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="tel:+15162218515"
-                className="inline-flex items-center gap-2 bg-white text-[#4F46E5] font-semibold px-8 py-3.5 rounded-xl hover:bg-gray-50 transition-colors duration-300"
+                className="inline-flex items-center gap-2 bg-white text-[#22C55E] font-semibold px-8 py-3.5 rounded-xl hover:bg-gray-50 transition-colors duration-300"
               >
                 <Phone size={18} />
                 Call (516) 221-8515
@@ -274,12 +274,12 @@ export default function ServiceDetail() {
               viewport={{ once: true, margin: '-80px' }}
               variants={fadeUp}
             >
-              <p className="text-[#4F46E5] font-semibold text-sm mb-3 uppercase tracking-wider">
+              <p className="text-[#22C55E] font-semibold text-sm mb-3 uppercase tracking-wider">
                 FAQ
               </p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                 Common{' '}
-                <span className="bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#22C55E] to-[#16A34A] bg-clip-text text-transparent">
                   Questions
                 </span>
               </h2>
@@ -304,12 +304,12 @@ export default function ServiceDetail() {
             viewport={{ once: true, margin: '-80px' }}
             variants={fadeUp}
           >
-            <p className="text-[#4F46E5] font-semibold text-sm mb-3 uppercase tracking-wider">
+            <p className="text-[#22C55E] font-semibold text-sm mb-3 uppercase tracking-wider">
               Explore More
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
               Other Services You May{' '}
-              <span className="bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#22C55E] to-[#16A34A] bg-clip-text text-transparent">
                 Need
               </span>
             </h2>
@@ -322,16 +322,16 @@ export default function ServiceDetail() {
                 <Link
                   key={s.slug}
                   to={`/services/${s.slug}`}
-                  className="group relative bg-gradient-to-br from-[#F0F4FF] to-white rounded-2xl p-6 sm:p-8 border border-gray-100 hover:border-[#4F46E5]/30 hover:shadow-xl hover:shadow-[#4F46E5]/5 transition-all duration-300"
+                  className="group relative bg-gradient-to-br from-[#f0fdf4] to-white rounded-2xl p-6 sm:p-8 border border-gray-100 hover:border-[#22C55E]/30 hover:shadow-xl hover:shadow-[#22C55E]/5 transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center mb-5 shadow-md shadow-[#4F46E5]/25">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center mb-5 shadow-md shadow-[#22C55E]/25">
                     <OtherIcon className="text-white" size={22} />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{s.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
                     {s.shortDescription.slice(0, 100)}...
                   </p>
-                  <div className="flex items-center gap-1 text-[#4F46E5] text-sm font-medium group-hover:gap-2 transition-all">
+                  <div className="flex items-center gap-1 text-[#22C55E] text-sm font-medium group-hover:gap-2 transition-all">
                     Learn More <ArrowRight size={14} />
                   </div>
                 </Link>

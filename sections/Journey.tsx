@@ -154,8 +154,8 @@ export function JourneySection() {
             {/* Trust stats */}
             <div className="space-y-4 mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-                  <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
+                <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+                  <Star className="w-5 h-5 text-emerald-500 fill-emerald-500" />
                 </div>
                 <div>
                   <p className="font-semibold text-sm text-gray-800">4.9 Star Rating</p>
@@ -250,8 +250,8 @@ export function JourneySection() {
           {[
             { icon: Bone, label: "Spinal Health", value: "Expert Care", color: "text-blue-500" },
             { icon: Activity, label: "Pain Relief", value: "Drug-Free", color: "text-emerald-500" },
-            { icon: Heart, label: "Wellness", value: "Whole-Body", color: "text-red-500" },
-            { icon: Zap, label: "Recovery", value: "Fast Results", color: "text-amber-500" },
+            { icon: Heart, label: "Wellness", value: "Whole-Body", color: "text-emerald-500" },
+            { icon: Zap, label: "Recovery", value: "Fast Results", color: "text-blue-500" },
           ].map((stat, i) => (
             <motion.div
               key={i}

@@ -123,8 +123,7 @@ export default function Hero() {
 
       {/* 3D Carousel — desktop only */}
       <div
-        className="absolute hidden lg:block z-20 pointer-events-auto"
-        style={{ top: "62%", left: "50%", transform: "translate(-50%, -50%)" }}
+        className="absolute block z-20 pointer-events-auto carousel-position"
       >
         <div className="carousel-wrapper" style={{ width: 0, height: 0 }}>
           <div
@@ -140,16 +139,16 @@ export default function Hero() {
                   style={{ "--index": i } as React.CSSProperties}
                 >
                   <div className="carousel-card-inner">
-                    <div className={`w-10 h-10 rounded-xl ${card.iconBg} flex items-center justify-center`}>
-                      <Icon className={`w-5 h-5 ${card.iconColor}`} />
+                    <div className={`w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-xl ${card.iconBg} flex items-center justify-center`}>
+                      <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 ${card.iconColor}`} />
                     </div>
-                    <p className="text-base font-bold text-slate-800 leading-tight">
+                    <p className="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-tight">
                       {card.title}
                     </p>
-                    <p className="text-sm font-semibold text-slate-600 leading-tight -mt-1">
+                    <p className="text-[10px] sm:text-xs lg:text-sm font-semibold text-slate-600 leading-tight -mt-1">
                       {card.subtitle}
                     </p>
-                    <p className="text-[10px] text-slate-400 leading-snug">
+                    <p className="text-[8px] sm:text-[9px] lg:text-[10px] text-slate-400 leading-snug">
                       {card.tagline}
                     </p>
                   </div>
@@ -157,29 +156,6 @@ export default function Hero() {
               );
             })}
           </div>
-        </div>
-      </div>
-
-      {/* Mobile stat badges — shown below doctor on small screens */}
-      <div className="absolute bottom-20 left-0 right-0 z-20 lg:hidden px-4">
-        <div className="flex justify-center gap-3 flex-wrap">
-          {[
-            { icon: Award, label: "30+ Yrs", color: "text-blue-500", bg: "bg-blue-50" },
-            { icon: Star, label: "4.9 Stars", color: "text-blue-500", bg: "bg-blue-50" },
-            { icon: Shield, label: "Licensed", color: "text-blue-500", bg: "bg-blue-50" },
-            { icon: Users, label: "Español", color: "text-blue-500", bg: "bg-blue-50" },
-          ].map((badge, i) => {
-            const Icon = badge.icon;
-            return (
-              <div
-                key={i}
-                className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-md"
-              >
-                <Icon className={`w-3.5 h-3.5 ${badge.color}`} />
-                <span className="text-xs font-semibold text-slate-700">{badge.label}</span>
-              </div>
-            );
-          })}
         </div>
       </div>
 

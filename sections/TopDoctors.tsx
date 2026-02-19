@@ -148,7 +148,7 @@ function AwardCard() {
       initial={{ opacity: 0, x: -50 }}
       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 border border-amber-100 shadow-lg"
+      className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8 border border-emerald-100 shadow-lg"
     >
       <div className="flex items-start gap-6">
         <motion.div
@@ -157,13 +157,13 @@ function AwardCard() {
           transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
           className="flex-shrink-0"
         >
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center shadow-lg">
             <Trophy className="w-10 h-10 text-white" />
           </div>
         </motion.div>
         <div className="flex-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-semibold mb-3">
-            <Star className="w-4 h-4 fill-amber-600 text-amber-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-sm font-semibold mb-3">
+            <Star className="w-4 h-4 fill-emerald-600 text-emerald-600" />
             Award-Winning Chiropractor
           </div>
           <h3 className="text-2xl font-bold text-gray-900 mb-2">Dr. Bruce C. Bromberg</h3>
@@ -205,11 +205,11 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
       className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer"
     >
       <div className="flex items-start gap-4">
-        <div className="text-4xl group-hover:scale-110 transition-transform duration-300 text-blue-500">
+        <div className="text-4xl group-hover:scale-110 transition-transform duration-300 text-emerald-500">
           <feature.Icon className="w-10 h-10" />
         </div>
         <div className="flex-1">
-          <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+          <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
             {feature.title}
           </h4>
           <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
@@ -247,7 +247,7 @@ function TrustBadge() {
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.4, delay: 0.4 }}
-          className="w-12 h-12 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center text-white font-bold text-sm shadow-md"
+          className="w-12 h-12 rounded-full bg-emerald-600 border-2 border-white flex items-center justify-center text-white font-bold text-sm shadow-md"
         >
           +99
         </motion.div>
@@ -255,7 +255,7 @@ function TrustBadge() {
       <div>
         <div className="flex items-center gap-2">
           <span className="text-3xl font-bold text-gray-900">5k+</span>
-          <Building2 className="w-6 h-6 text-blue-600" />
+          <Building2 className="w-6 h-6 text-emerald-600" />
         </div>
         <p className="text-gray-600 text-sm font-medium">Happy Patients & Counting</p>
       </div>
