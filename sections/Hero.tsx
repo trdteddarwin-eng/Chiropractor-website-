@@ -108,8 +108,8 @@ export default function Hero() {
         </h1>
       </div>
 
-      {/* Doctor image — centered, z-10, cutout style */}
-      <div className="absolute inset-0 flex items-end justify-center z-10 pointer-events-none">
+      {/* Doctor image + carousel — carousel orbits around the doctor */}
+      <div className="absolute inset-0 flex items-end justify-center z-20 pointer-events-none">
         <div className="relative w-[440px] h-[340px] sm:w-[540px] sm:h-[400px] md:w-[680px] md:h-[500px] lg:w-[1000px] lg:h-[850px]">
           <img
             src="/dr-bromberg-hero.png"
@@ -118,43 +118,41 @@ export default function Hero() {
           />
           {/* Bottom fade to white */}
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
-        </div>
-      </div>
 
-      {/* 3D Carousel — desktop only */}
-      <div
-        className="absolute block z-20 pointer-events-auto carousel-position"
-      >
-        <div className="carousel-wrapper" style={{ width: 0, height: 0 }}>
-          <div
-            className="carousel-inner"
-            style={{ "--quantity": 8 } as React.CSSProperties}
-          >
-            {carouselCards.map((card, i) => {
-              const Icon = card.icon;
-              return (
-                <div
-                  key={i}
-                  className="carousel-card"
-                  style={{ "--index": i } as React.CSSProperties}
-                >
-                  <div className="carousel-card-inner">
-                    <div className={`w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-xl ${card.iconBg} flex items-center justify-center`}>
-                      <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 ${card.iconColor}`} />
+          {/* 3D Carousel — orbits around doctor's body */}
+          <div className="absolute pointer-events-auto carousel-position">
+            <div className="carousel-wrapper" style={{ width: 0, height: 0 }}>
+              <div
+                className="carousel-inner"
+                style={{ "--quantity": 8 } as React.CSSProperties}
+              >
+                {carouselCards.map((card, i) => {
+                  const Icon = card.icon;
+                  return (
+                    <div
+                      key={i}
+                      className="carousel-card"
+                      style={{ "--index": i } as React.CSSProperties}
+                    >
+                      <div className="carousel-card-inner">
+                        <div className={`w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-xl ${card.iconBg} flex items-center justify-center`}>
+                          <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 ${card.iconColor}`} />
+                        </div>
+                        <p className="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-tight">
+                          {card.title}
+                        </p>
+                        <p className="text-[10px] sm:text-xs lg:text-sm font-semibold text-slate-600 leading-tight -mt-1">
+                          {card.subtitle}
+                        </p>
+                        <p className="text-[8px] sm:text-[9px] lg:text-[10px] text-slate-400 leading-snug">
+                          {card.tagline}
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-xs sm:text-sm lg:text-base font-bold text-slate-800 leading-tight">
-                      {card.title}
-                    </p>
-                    <p className="text-[10px] sm:text-xs lg:text-sm font-semibold text-slate-600 leading-tight -mt-1">
-                      {card.subtitle}
-                    </p>
-                    <p className="text-[8px] sm:text-[9px] lg:text-[10px] text-slate-400 leading-snug">
-                      {card.tagline}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

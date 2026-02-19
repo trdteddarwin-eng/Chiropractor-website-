@@ -114,29 +114,11 @@
   gap: 0.5rem;
 }
 
-/* Responsive carousel positioning */
+/* Carousel positioned relative to doctor container — centers on torso */
 .carousel-position {
-  top: 65%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-@media (min-width: 640px) {
-  .carousel-position {
-    top: 64%;
-  }
-}
-
-@media (min-width: 768px) {
-  .carousel-position {
-    top: 63%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .carousel-position {
-    top: 62%;
-  }
 }
 
 /* Responsive carousel card sizes */
