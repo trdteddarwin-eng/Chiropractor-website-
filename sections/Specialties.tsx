@@ -1,64 +1,25 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  Heart,
-  Activity,
-  Brain,
-  Bone,
-  Wind,
-  Users,
-  Droplets,
-  CircleDot,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { services } from '../data/services';
 
-interface Specialty {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-}
-
-const specialties: Specialty[] = [
+const steps = [
   {
-    icon: Heart,
-    title: 'Cardiology',
-    description: 'Heart and cardiovascular system specialists dedicated to your cardiac health.',
+    number: '01',
+    title: 'Consultation',
+    description: "Schedule your initial visit. We'll discuss your health history, symptoms, and goals.",
   },
   {
-    icon: Activity,
-    title: 'Gastroenterology',
-    description: 'Digestive system experts providing comprehensive GI care and treatment.',
+    number: '02',
+    title: 'Custom Treatment Plan',
+    description: 'Dr. Bromberg creates a personalized care plan based on your examination and X-ray results.',
   },
   {
-    icon: Brain,
-    title: 'Neurologist',
-    description: 'Brain and nervous system specialists for neurological conditions and care.',
-  },
-  {
-    icon: Bone,
-    title: 'Orthopedic Surgeon',
-    description: 'Bones and joints experts specializing in musculoskeletal health.',
-  },
-  {
-    icon: Wind,
-    title: 'Pulmonologist',
-    description: 'Lungs and breathing specialists focused on respiratory wellness.',
-  },
-  {
-    icon: Users,
-    title: 'Gynecologist',
-    description: "Women's health specialists providing compassionate reproductive care.",
-  },
-  {
-    icon: Droplets,
-    title: 'Nephrologist',
-    description: 'Kidney health experts dedicated to renal care and disease management.',
-  },
-  {
-    icon: CircleDot,
-    title: 'Urologist',
-    description: 'Urinary system specialists offering comprehensive urological care.',
+    number: '03',
+    title: 'Ongoing Care',
+    description: 'Regular adjustments and progress check-ins to keep you feeling your best long-term.',
   },
 ];
 
@@ -74,12 +35,12 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 30 
+  hidden: {
+    opacity: 0,
+    y: 30,
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.5,
@@ -90,8 +51,8 @@ const cardVariants = {
 
 const titleVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
@@ -102,8 +63,9 @@ const titleVariants = {
 
 export default function Specialties() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 xl:px-12" style={{ backgroundColor: '#F0F9FF' }}>
+    <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 xl:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -111,56 +73,94 @@ export default function Specialties() {
           variants={titleVariants}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Locate Trusted Experts Near You
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#4F46E5]/10 text-[#4F46E5] text-sm font-semibold mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#4F46E5]" />
+            Our Services
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Our{' '}
+            <span className="bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] bg-clip-text text-transparent">
+              Chiropractic Services
+            </span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Connect with top-rated specialists across various medical fields. Our network 
-            of experienced doctors is ready to provide personalized care tailored to your needs.
+            Dr. Bruce C. Bromberg offers a full range of chiropractic treatments at Action
+            Chiropractic P.C. — from spinal adjustments to digital X-rays, all done on site in Westbury, NY.
           </p>
         </motion.div>
 
+        {/* Service Cards Grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-24"
         >
-          {specialties.map((specialty) => {
-            const Icon = specialty.icon;
+          {services.map((service) => {
+            const Icon = service.icon;
             return (
-              <motion.div
-                key={specialty.title}
-                variants={cardVariants}
-                whileHover={{ 
-                  y: -8, 
-                  boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.15)',
-                  transition: { duration: 0.3 }
-                }}
-                className="bg-white rounded-xl p-6 shadow-md cursor-pointer transition-colors"
-                style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
-              >
-                <div 
-                  className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
-                  style={{ backgroundColor: '#F0F9FF' }}
+              <motion.div key={service.slug} variants={cardVariants}>
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="group relative bg-white rounded-2xl border border-gray-100 p-6 cursor-pointer transition-all duration-300 hover:border-[#4F46E5]/30 hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.15)] block h-full"
                 >
-                  <Icon 
-                    className="w-7 h-7" 
-                    style={{ color: '#3B82F6' }}
-                    strokeWidth={1.5}
-                  />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  {specialty.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {specialty.description}
-                </p>
+                  <div className="w-14 h-14 rounded-2xl bg-[#4F46E5]/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-[#4F46E5] group-hover:to-[#7C3AED]">
+                    <Icon className="w-6 h-6 text-[#4F46E5] transition-colors duration-300 group-hover:text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                    {service.shortDescription}
+                  </p>
+                  <div className="flex items-center gap-1 text-[#4F46E5] text-sm font-medium opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                    Learn More
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </Link>
               </motion.div>
             );
           })}
         </motion.div>
+
+        {/* How It Works */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={titleVariants}
+        >
+          <div className="rounded-3xl bg-[#F9FAFB] px-6 py-16 sm:px-12 mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                How It Works
+              </h3>
+              <p className="text-gray-600 max-w-xl mx-auto">
+                Getting started with Action Chiropractic is simple. Here's what to expect.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              {steps.map((step, index) => {
+                return (
+                  <div key={step.number} className="text-center relative">
+                    {/* Connector line */}
+                    {index < steps.length - 1 && (
+                      <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-[2px] bg-gradient-to-r from-[#4F46E5]/30 to-[#7C3AED]/30" />
+                    )}
+                    <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] text-white text-xl font-bold mb-4">
+                      {step.number}
+                    </div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

@@ -1,214 +1,195 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Heart, Droplets, Thermometer, Zap } from "lucide-react";
+import React from "react";
+import {
+  Award,
+  Star,
+  Activity,
+  Zap,
+  Target,
+  ScanLine,
+  Shield,
+  Users,
+} from "lucide-react";
 
-interface HealthCard {
-  id: number;
-  icon: React.ReactNode;
-  value: string;
-  label: string;
-  color: string;
-  bgColor: string;
-  position: {
-    top?: string;
-    bottom?: string;
-    left?: string;
-    right?: string;
-  };
-  delay: string;
-}
-
-const healthCards: HealthCard[] = [
+const carouselCards = [
   {
-    id: 1,
-    icon: <Heart className="w-5 h-5" />,
-    value: "120 bpm",
-    label: "Heart Rate",
-    color: "text-red-500",
-    bgColor: "bg-red-50",
-    position: { top: "15%", left: "10%" },
-    delay: "0s",
+    icon: Award,
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-500",
+    title: "30+ Years",
+    subtitle: "Experience",
+    tagline: "Expert Chiropractic Care",
   },
   {
-    id: 2,
-    icon: <Droplets className="w-5 h-5" />,
-    value: "98%",
-    label: "Blood Oxygen",
-    color: "text-blue-500",
-    bgColor: "bg-blue-50",
-    position: { top: "25%", right: "12%" },
-    delay: "0.5s",
+    icon: Star,
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-500",
+    title: "4.9 Rating",
+    subtitle: "500+ Reviews",
+    tagline: "Trusted by Families",
   },
   {
-    id: 3,
-    icon: <Thermometer className="w-5 h-5" />,
-    value: "36.5°C",
-    label: "Temperature",
-    color: "text-orange-500",
-    bgColor: "bg-orange-50",
-    position: { bottom: "30%", left: "8%" },
-    delay: "1s",
+    icon: Activity,
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-500",
+    title: "Spinal",
+    subtitle: "Adjustments",
+    tagline: "Precision Alignment",
   },
   {
-    id: 4,
-    icon: <Zap className="w-5 h-5" />,
-    value: "8,432",
-    label: "Steps Today",
-    color: "text-green-500",
-    bgColor: "bg-green-50",
-    position: { bottom: "25%", right: "10%" },
-    delay: "1.5s",
+    icon: Zap,
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-500",
+    title: "Pain Relief",
+    subtitle: "Drug-Free",
+    tagline: "Natural Solutions",
+  },
+  {
+    icon: Target,
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-500",
+    title: "Sports Rehab",
+    subtitle: "Recovery",
+    tagline: "Get Back in the Game",
+  },
+  {
+    icon: ScanLine,
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-500",
+    title: "On-Site",
+    subtitle: "X-Rays",
+    tagline: "Same-Day Results",
+  },
+  {
+    icon: Shield,
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-500",
+    title: "Licensed",
+    subtitle: "& Insured",
+    tagline: "Board Certified",
+  },
+  {
+    icon: Users,
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-500",
+    title: "Se Habla",
+    subtitle: "Español",
+    tagline: "Everyone Welcome",
   },
 ];
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-sky-50 via-blue-50 to-cyan-50">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-200 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-100 rounded-full blur-3xl" />
-      </div>
+    <section
+      className="relative w-full min-h-screen overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(180deg, #1a5276 0%, #2980b9 15%, #5dade2 35%, #85c1e9 55%, #aed6f1 70%, #d6eaf8 85%, #ebf5fb 95%, #ffffff 100%)",
+      }}
+    >
+      {/* Cloud shapes */}
+      <div className="absolute top-[8%] left-[5%] w-[500px] h-[200px] bg-white/25 rounded-full blur-3xl animate-cloud-drift" />
+      <div className="absolute top-[15%] right-[10%] w-[400px] h-[160px] bg-white/20 rounded-full blur-3xl animate-cloud-drift" style={{ animationDelay: "-5s" }} />
+      <div className="absolute top-[25%] left-[30%] w-[600px] h-[180px] bg-white/15 rounded-full blur-3xl animate-cloud-drift" style={{ animationDelay: "-10s" }} />
+      <div className="absolute top-[5%] right-[25%] w-[350px] h-[140px] bg-white/20 rounded-full blur-3xl animate-cloud-drift" style={{ animationDelay: "-3s" }} />
+      <div className="absolute top-[35%] left-[60%] w-[450px] h-[150px] bg-white/10 rounded-full blur-3xl animate-cloud-drift" style={{ animationDelay: "-8s" }} />
 
-      {/* Large Background Text */}
-      <div
-        className={`absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-1000 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
-      >
-        <h1 className="text-[120px] md:text-[180px] lg:text-[220px] font-black text-blue-900/5 uppercase tracking-wider select-none">
-          DOCUVERSE
+      {/* ACTION CHIRO text — behind doctor */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+        <h1
+          className="text-[80px] sm:text-[140px] md:text-[200px] lg:text-[260px] xl:text-[320px] font-black uppercase tracking-wider select-none"
+          style={{
+            color: "transparent",
+            WebkitTextStroke: "2px rgba(255,255,255,0.6)",
+          }}
+        >
+          ACTION CHIRO
         </h1>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col items-center justify-center py-20">
-        {/* Hero Title */}
-        <div
-          className={`text-center mb-8 transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 mb-4">
-            Your Health, <span className="text-blue-600">Simplified</span>
-          </h2>
+      {/* Doctor image — centered, z-10, cutout style */}
+      <div className="absolute inset-0 flex items-end justify-center z-10 pointer-events-none">
+        <div className="relative w-[440px] h-[340px] sm:w-[540px] sm:h-[400px] md:w-[680px] md:h-[500px] lg:w-[1000px] lg:h-[850px]">
+          <img
+            src="/dr-bromberg-hero.png"
+            alt="Dr. Bruce C. Bromberg, Chiropractor"
+            className="w-full h-full object-contain object-bottom"
+          />
+          {/* Bottom fade to white */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
         </div>
+      </div>
 
-        {/* Doctor Image with Floating Cards */}
-        <div
-          className={`relative w-full max-w-2xl mx-auto mb-10 transition-all duration-700 delay-400 ${
-            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          }`}
-        >
-          {/* Doctor Image Container */}
-          <div className="relative mx-auto w-64 h-80 md:w-80 md:h-96">
-            {/* Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-400/20 to-transparent rounded-3xl blur-xl" />
-
-            {/* Doctor Image */}
-            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
-              <img
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=800&fit=crop&crop=face"
-                alt="Professional Doctor"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Floating Health Cards */}
-          {healthCards.map((card) => (
-            <div
-              key={card.id}
-              className="absolute animate-float"
-              style={{
-                ...card.position,
-                animationDelay: card.delay,
-                animation: `float 3s ease-in-out ${card.delay} infinite`,
-              }}
-            >
-              <div
-                className={`${card.bgColor} backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg border border-white/60 flex items-center gap-3 min-w-[140px]`}
-              >
-                <div className={`${card.color} p-2 rounded-lg bg-white/80`}>
-                  {card.icon}
+      {/* 3D Carousel — desktop only */}
+      <div
+        className="absolute hidden lg:block z-20 pointer-events-auto"
+        style={{ top: "62%", left: "50%", transform: "translate(-50%, -50%)" }}
+      >
+        <div className="carousel-wrapper" style={{ width: 0, height: 0 }}>
+          <div
+            className="carousel-inner"
+            style={{ "--quantity": 8 } as React.CSSProperties}
+          >
+            {carouselCards.map((card, i) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={i}
+                  className="carousel-card"
+                  style={{ "--index": i } as React.CSSProperties}
+                >
+                  <div className="carousel-card-inner">
+                    <div className={`w-10 h-10 rounded-xl ${card.iconBg} flex items-center justify-center`}>
+                      <Icon className={`w-5 h-5 ${card.iconColor}`} />
+                    </div>
+                    <p className="text-base font-bold text-slate-800 leading-tight">
+                      {card.title}
+                    </p>
+                    <p className="text-sm font-semibold text-slate-600 leading-tight -mt-1">
+                      {card.subtitle}
+                    </p>
+                    <p className="text-[10px] text-slate-400 leading-snug">
+                      {card.tagline}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-lg font-bold text-slate-800">{card.value}</p>
-                  <p className="text-xs text-slate-500">{card.label}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Tagline */}
-        <div
-          className={`text-center mb-8 max-w-xl transition-all duration-700 delay-600 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
-            Find the right specialist for your health needs. Book appointments with
-            top-rated doctors in minutes, not days.
-          </p>
-        </div>
-
-        {/* CTA Button */}
-        <div
-          className={`transition-all duration-700 delay-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <button className="group relative px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden">
-            <span className="relative z-10 flex items-center gap-2">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              Book Appointment
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </button>
-        </div>
-
-        {/* Stats Row */}
-        <div
-          className={`mt-16 grid grid-cols-3 gap-8 md:gap-16 transition-all duration-700 delay-800 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-slate-800">500+</p>
-            <p className="text-sm text-slate-500 mt-1">Expert Doctors</p>
-          </div>
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-slate-800">50k+</p>
-            <p className="text-sm text-slate-500 mt-1">Happy Patients</p>
-          </div>
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-slate-800">4.9</p>
-            <p className="text-sm text-slate-500 mt-1">App Rating</p>
+              );
+            })}
           </div>
         </div>
       </div>
 
+      {/* Mobile stat badges — shown below doctor on small screens */}
+      <div className="absolute bottom-20 left-0 right-0 z-20 lg:hidden px-4">
+        <div className="flex justify-center gap-3 flex-wrap">
+          {[
+            { icon: Award, label: "30+ Yrs", color: "text-blue-500", bg: "bg-blue-50" },
+            { icon: Star, label: "4.9 Stars", color: "text-blue-500", bg: "bg-blue-50" },
+            { icon: Shield, label: "Licensed", color: "text-blue-500", bg: "bg-blue-50" },
+            { icon: Users, label: "Español", color: "text-blue-500", bg: "bg-blue-50" },
+          ].map((badge, i) => {
+            const Icon = badge.icon;
+            return (
+              <div
+                key={i}
+                className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-md"
+              >
+                <Icon className={`w-3.5 h-3.5 ${badge.color}`} />
+                <span className="text-xs font-semibold text-slate-700">{badge.label}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Tagline at bottom */}
+      <div className="absolute bottom-8 left-0 right-0 z-20 text-center px-4">
+        <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          Expert chiropractic care in Westbury, NY — spinal adjustments,
+          digital X-rays on site & pain relief. Se habla Español.
+        </p>
+      </div>
     </section>
   );
 }

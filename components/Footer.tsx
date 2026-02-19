@@ -1,25 +1,25 @@
 'use client';
 
 import React from 'react';
-import { Leaf, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Grid3X3, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const footerLinks = {
-    aboutUs: {
-      title: 'About Us',
-      links: ['News', 'Investor Relation', 'Careers', 'Media Kit'],
+    services: {
+      title: 'Services',
+      links: ['Spinal Adjustments', 'Sports Rehab', 'Pain Management', 'Massage Therapy'],
     },
-    resources: {
-      title: 'Resources',
-      links: ['Get Started', 'Learn', 'Case Studies'],
+    about: {
+      title: 'About',
+      links: ['Dr. Bromberg', 'Our Approach', 'Patient Stories', 'Office Tour'],
     },
-    community: {
-      title: 'Community',
-      links: ['Discord', 'Events', 'FAQ', 'Blog'],
+    patients: {
+      title: 'For Patients',
+      links: ['New Patients', 'Insurance & Billing', 'FAQ', 'Blog'],
     },
     legal: {
       title: 'Legal',
-      links: ['Brand Policy', 'Terms of Services', 'Careers', 'Media Kit'],
+      links: ['Privacy Policy', 'Terms of Service', 'HIPAA Notice', 'Accessibility'],
     },
   };
 
@@ -35,13 +35,13 @@ const Footer: React.FC = () => {
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* About Us */}
+          {/* Services */}
           <div>
             <h3 className="text-lg font-semibold mb-4">
-              {footerLinks.aboutUs.title}
+              {footerLinks.services.title}
             </h3>
             <ul className="space-y-2">
-              {footerLinks.aboutUs.links.map((link) => (
+              {footerLinks.services.links.map((link) => (
                 <li key={link}>
                   <a
                     href="#"
@@ -54,13 +54,13 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* About */}
           <div>
             <h3 className="text-lg font-semibold mb-4">
-              {footerLinks.resources.title}
+              {footerLinks.about.title}
             </h3>
             <ul className="space-y-2">
-              {footerLinks.resources.links.map((link) => (
+              {footerLinks.about.links.map((link) => (
                 <li key={link}>
                   <a
                     href="#"
@@ -73,13 +73,13 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Community */}
+          {/* Patients */}
           <div>
             <h3 className="text-lg font-semibold mb-4">
-              {footerLinks.community.title}
+              {footerLinks.patients.title}
             </h3>
             <ul className="space-y-2">
-              {footerLinks.community.links.map((link) => (
+              {footerLinks.patients.links.map((link) => (
                 <li key={link}>
                   <a
                     href="#"
@@ -119,8 +119,10 @@ const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <Leaf className="w-6 h-6 text-green-500" />
-              <span className="text-white text-lg font-bold">DocuVerse</span>
+              <div className="w-6 h-6 bg-emerald-500 rounded flex items-center justify-center">
+                <Grid3X3 className="w-4 h-4 text-white" />
+              </div>
+              <span className="text-white text-lg font-bold">Action Chiropractic P.C.</span>
             </div>
 
             {/* Social Icons */}
@@ -139,7 +141,7 @@ const Footer: React.FC = () => {
 
             {/* Copyright */}
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} DocuVerse. All rights reserved.
+              &copy; {new Date().getFullYear()} Action Chiropractic P.C.. All rights reserved.
             </p>
           </div>
         </div>

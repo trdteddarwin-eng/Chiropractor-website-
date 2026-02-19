@@ -4,29 +4,29 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star, Trophy, Facebook, Twitter, Instagram, Linkedin, Building2, DollarSign, ClipboardList } from "lucide-react";
 
-const doctors = [
+const teamMembers = [
   {
     id: 1,
-    name: "Dr. Sara Noor",
-    specialty: "Gynecologist",
+    name: "Dr. Bruce C. Bromberg",
+    specialty: "Chiropractor — Action Chiropractic P.C.",
     rating: 4.9,
-    reviews: 128,
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop",
+    reviews: 215,
+    image: "/dr-bromberg-hero.png",
   },
   {
     id: 2,
-    name: "Dr. Amira Siddiqua",
-    specialty: "Dermatologist",
+    name: "Sarah Mitchell, LMT",
+    specialty: "Licensed Massage Therapist",
     rating: 4.8,
     reviews: 96,
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop",
   },
   {
     id: 3,
-    name: "Dr. Omar Karim",
-    specialty: "Cardiologist",
+    name: "Dr. James Chen, D.C.",
+    specialty: "Sports Chiropractor",
     rating: 5.0,
-    reviews: 215,
+    reviews: 128,
     image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop",
     featured: true,
   },
@@ -35,14 +35,14 @@ const doctors = [
 const features = [
   {
     id: 1,
-    title: "Optimize Payroll",
-    description: "Streamline your hospital's payroll system with our automated solutions that reduce errors and save time.",
+    title: "Insurance & Billing Made Easy",
+    description: "We handle the paperwork so you can focus on getting better. We accept most major insurance plans and offer flexible payment options.",
     Icon: DollarSign,
   },
   {
     id: 2,
-    title: "Streamline Compliance",
-    description: "Stay compliant with healthcare regulations through our comprehensive tracking and reporting tools.",
+    title: "Comprehensive Care Plans",
+    description: "Every patient gets a personalized treatment plan with clear milestones, home exercises, and progress tracking from day one.",
     Icon: ClipboardList,
   },
 ];
@@ -100,7 +100,7 @@ function SocialIcons() {
   );
 }
 
-function DoctorCard({ doctor, index }: { doctor: typeof doctors[0]; index: number }) {
+function TeamCard({ doctor, index }: { doctor: typeof teamMembers[0]; index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -125,7 +125,7 @@ function DoctorCard({ doctor, index }: { doctor: typeof doctors[0]; index: numbe
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-gray-900 mb-1">{doctor.name}</h3>
-        <p className="text-blue-600 font-medium mb-3">{doctor.specialty}</p>
+        <p className="text-emerald-600 font-medium mb-3">{doctor.specialty}</p>
         <div className="flex items-center justify-between">
           <StarRating rating={doctor.rating} />
           <span className="text-sm text-gray-500">({doctor.reviews} reviews)</span>
@@ -164,24 +164,25 @@ function AwardCard() {
         <div className="flex-1">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-semibold mb-3">
             <Star className="w-4 h-4 fill-amber-600 text-amber-600" />
-            Award-Winning Expertise
+            Award-Winning Chiropractor
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">Dr. Omar Karim</h3>
-          <p className="text-blue-600 font-medium mb-3">Chief Cardiologist</p>
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">Dr. Bruce C. Bromberg</h3>
+          <p className="text-emerald-600 font-medium mb-3">Chiropractor — Action Chiropractic P.C.</p>
           <p className="text-gray-600 leading-relaxed">
-            With over 20 years of experience in cardiovascular medicine, Dr. Karim has been recognized 
-            globally for his groundbreaking research and patient care excellence. His innovative 
-            treatment methods have saved thousands of lives.
+            Dr. Bromberg leads Action Chiropractic P.C. in Westbury, NY, with precise spinal
+            adjustments and a holistic approach to pain relief. Digital X-rays done on site
+            for accurate diagnosis. He has helped thousands recover from back pain, neck injuries,
+            and chronic conditions using drug-free, non-invasive techniques. Se habla Español.
           </p>
           <div className="mt-4 flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className="text-3xl font-bold text-gray-900">500+</span>
-              <span className="text-sm text-gray-600">Surgeries</span>
+              <span className="text-3xl font-bold text-gray-900">10k+</span>
+              <span className="text-sm text-gray-600">Adjustments</span>
             </div>
             <div className="w-px h-10 bg-gray-300" />
             <div className="flex items-center gap-2">
-              <span className="text-3xl font-bold text-gray-900">15</span>
-              <span className="text-sm text-gray-600">Awards</span>
+              <span className="text-3xl font-bold text-gray-900">30+</span>
+              <span className="text-sm text-gray-600">Years</span>
             </div>
           </div>
         </div>
@@ -239,7 +240,7 @@ function TrustBadge() {
             transition={{ duration: 0.4, delay: index * 0.1 }}
             className="w-12 h-12 rounded-full border-2 border-white overflow-hidden shadow-md"
           >
-            <img src={icon} alt={`Hospital ${index + 1}`} className="w-full h-full object-cover" />
+            <img src={icon} alt={`Partner ${index + 1}`} className="w-full h-full object-cover" />
           </motion.div>
         ))}
         <motion.div
@@ -253,10 +254,10 @@ function TrustBadge() {
       </div>
       <div>
         <div className="flex items-center gap-2">
-          <span className="text-3xl font-bold text-gray-900">115k</span>
+          <span className="text-3xl font-bold text-gray-900">5k+</span>
           <Building2 className="w-6 h-6 text-blue-600" />
         </div>
-        <p className="text-gray-600 text-sm font-medium">Trusted by Hospitals Worldwide</p>
+        <p className="text-gray-600 text-sm font-medium">Happy Patients & Counting</p>
       </div>
     </motion.div>
   );
@@ -281,18 +282,18 @@ export default function TopDoctors() {
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4"
+              className="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold mb-4"
             >
-              Our Medical Team
+              Our Care Team
             </motion.span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
-              Top Doctors Dedicated to Your Health{" "}
-              <span className="text-blue-600">Always</span>
+              Meet the Team Behind Your{" "}
+              <span className="text-emerald-600">Recovery</span>
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Our team of world-class physicians brings together decades of experience, 
-              cutting-edge research, and compassionate care to provide you with the best 
-              medical treatment available.
+              Led by Dr. Bruce C. Bromberg at Action Chiropractic P.C. in Westbury, NY,
+              our team delivers personalized, hands-on chiropractic care
+              to get you back to living pain-free.
             </p>
           </motion.div>
 
@@ -307,10 +308,10 @@ export default function TopDoctors() {
           <AwardCard />
         </div>
 
-        {/* Doctor Cards Grid */}
+        {/* Team Cards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {doctors.map((doctor, index) => (
-            <DoctorCard key={doctor.id} doctor={doctor} index={index} />
+          {teamMembers.map((doctor, index) => (
+            <TeamCard key={doctor.id} doctor={doctor} index={index} />
           ))}
         </div>
 
